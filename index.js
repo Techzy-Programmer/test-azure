@@ -1,4 +1,5 @@
 import { Hono } from 'hono';
+import "dotenv/config";
 import { serve } from '@hono/node-server';
 import { PrismaClient } from '@prisma/client';
 
