@@ -7,7 +7,7 @@ const app = new Hono();
 const prisma = new PrismaClient();
 
 app.get('/', (c) => {
-  return c.text('Hello, World!');
+  return c.text('Hello, Hi!');
 });
 
 app.post('/posts', async (c) => {
