@@ -10,7 +10,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Before checkout
+        run: ls -la
+        
       - uses: actions/checkout@v4
-
-      - name: Run anything
-        run: echo "Hello, world!"
+      
+      - name: After checkout
+        run: ls -la
