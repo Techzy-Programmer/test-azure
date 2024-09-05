@@ -7,7 +7,7 @@ const app = new Hono();
 const prisma = new PrismaClient();
 
 app.get('/', (c) => {
-  return c.redirect('/posts');
+  return c.text('Hello, World!');
 });
 
 app.post('/posts', async (c) => {
@@ -58,3 +58,5 @@ serve({
   fetch: app.fetch,
   port: process.env.PORT || 8080
 }, () => console.log(`Server running at http://localhost:${process.env.PORT || 8080}`));
+
+console.log("I am new version");
