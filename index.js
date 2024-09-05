@@ -5,6 +5,10 @@ import { PrismaClient } from '@prisma/client';
 const app = new Hono();
 const prisma = new PrismaClient();
 
+app.get('/', (c) => {
+  return c.redirect('/posts');
+});
+
 app.post('/posts', async (c) => {
   const { title, content } = await c.req.json();
 
@@ -17,6 +21,7 @@ app.post('/posts', async (c) => {
     });
     return c.json(newPost, 201);
   } catch (error) {
+    console.log(error);
     return c.json({ error: 'Failed to create post' }, 500);
   }
 });
