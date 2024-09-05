@@ -31,6 +31,7 @@ app.get('/posts', async (c) => {
     const posts = await prisma.post.findMany();
     return c.json(posts, 200);
   } catch (error) {
+    console.log(error);
     return c.json({ error: 'Failed to retrieve posts' }, 500);
   }
 });
