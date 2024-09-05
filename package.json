@@ -1,0 +1,21 @@
+{
+  "name": "azure",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@hono/node-server": "^1.12.2",
+    "@prisma/client": "^5.19.1",
+    "hono": "^4.5.11"
+  },
+  "devDependencies": {
+    "prisma": "^5.19.1"
+  }
+}
