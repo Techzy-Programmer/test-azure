@@ -21,16 +21,23 @@ jobs:
         base64 -w 0 init_script.txt > script_b64.txt
         echo "B64_SCRIPT=$(cat script_b64.txt)" >> $GITHUB_ENV
 
-    - name: Transmit data to trigger deployment
+    - name: Echo logs
       env:
-        REPO: ${{ github.repository }}
+          REPO: ${{ github.repository }}
       run: |
-        curl -X POST "http://4.240.118.5:5128/deploy" \
-          -H "Content-Type: application/json" \
-          -d '{
-            "repo_name": "${REPO}",
-            "scripts": "${B64_SCRIPT}"
-          }'
+        echo "${B64_SCRIPT}"
+        echo "${REPO}"
+
+    # - name: Transmit data to trigger deployment
+    #   env:
+    #     REPO: ${{ github.repository }}
+    #   run: |
+    #     curl -X POST "http://4.240.118.5:5128/deploy" \
+    #       -H "Content-Type: application/json" \
+    #       -d '{
+    #         "repo_name": "${REPO}",
+    #         "scripts": "${B64_SCRIPT}"
+    #       }'
   
     - name: Clean up temp files
       run: rm -f init_script.txt script_b64.txt
