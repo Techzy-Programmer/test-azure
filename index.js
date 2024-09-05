@@ -59,4 +59,4 @@ serve({
   port: process.env.PORT || 8080
 }, () => console.log(`Server running at http://localhost:${process.env.PORT || 8080}`));
 
-console.log("I am new version, Whoohoo!");
+console.log("I am new version, Whoohoo Hi!");
