@@ -11,6 +11,7 @@ datasource db {
 model Post {
   id        Int      @id @default(autoincrement())
   title     String
+  owner     String
   content   String
   createdAt DateTime @default(now())
 }

@@ -11,13 +11,14 @@ app.get('/', (c) => {
 });
 
 app.post('/posts', async (c) => {
-  const { title, content } = await c.req.json();
+  const { title, content, owner } = await c.req.json();
 
   try {
     const newPost = await prisma.post.create({
       data: {
         title,
         content,
+        owner
       },
     });
     return c.json(newPost, 201);
